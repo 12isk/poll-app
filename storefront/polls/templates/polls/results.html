@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="{% static 'polls/results.css' %}">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="cleartype" content="on">
+
+<html>
+    <header>
+        <div class="container">
+            <h1 class="Logobal">Les résultats actuels sont les suivants:</h1>
+            <br>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+                <ul>
+                    <li class="Menu"><a href="{% url 'polls:index'%}" class="Menu">Home</a></li>
+
+            </nav>
+        </div>
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+        <br>
+    </header>
+
+    <body>
+        <div class="box">
+            <ul class="list">
+                {% for choice in question.choice_set.all %}
+                <li class="list_element">{{ choice.choice_text }} -- {{choice.votes}} vote{{choice.votes|pluralize}}</li>
+                {%endfor%}
+            </ul>
+        </div>
+
+<a href="/polls/4" class="button">Passer au vote des candidates?</a>
+
+
+
+
+</html>

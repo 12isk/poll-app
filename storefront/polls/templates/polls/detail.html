@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="{% static 'polls/detail.css'%}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <title>Votez pour votre candidat</title>
+    </head>
+    
+    
+    <body>
+    <header>
+        <div class="container">
+            <h1 class="Logobal">BAL DE L'EIJV</h1>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+                <ul>
+                    <li class="Menu"><a href="{% url 'polls:index'%}" class="Menu">Home</a></li>
+
+            </nav>
+        </div>
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+    </header>
+    <div class="content">
+        <div class="instruction_box">
+            <p class="instruction_2">*Appuyez sur "Voter" pour valider votre sélection.</p>
+        </div>
+
+        {% csrf_token %}
+        </ul>
+
+        <span style="padding: 20px;">
+        
+            <form action="{% url 'polls:vote' question.id %}" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    <legend><h1>{{ question.question_text }}</h1></legend>
+                    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                    {% for choice in question.choice_set.all %}
+                    <div class="form">
+
+                        <!-- <div class="input">
+                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                             -->
+                        </div>
+    
+                        <div class="radio">
+                            <label for="choice{{ forloop.counter }}">
+                                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" class="input">
+                                <div class="checkmark"></div>
+                                {{ choice.choice_text }}
+                            </label>
+                        </div>
+                        <br>
+                    {% endfor %}
+                    </div>
+                </fieldset>
+            <input type="submit" value="Voter" class="Vote">
+        
+        </form>
+    </div>
+
+    </body>
+</html>
+
+
+
+
+
+
+</html>

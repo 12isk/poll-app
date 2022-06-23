@@ -1,0 +1,214 @@
+@import url(//fonts.googleapis.com/css?family=Roboto);
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+    font-size: large;
+
+}
+*, *::before, *::after{
+    box-sizing:"border-box";
+}
+:root{
+    --background: rgba(127, 255, 212, 1)
+}
+/* Header beginning */
+header{
+    /* background-color: var(--background); */
+    background-color: #5C9EAD;
+    text-align: center;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+}
+header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+nav{
+    position: absolute;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    top: 100%;
+    left: 0;
+    background-color:#5C9EAD;
+    ;
+    width: 100%;
+    transform: scale(1,0);
+    transform-origin: top;
+    transition: transform 200ms ease-in-out 200ms
+}
+a Menu{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0;
+    transform : opacity 1s ease-in-out 1s;
+}
+a{
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+
+
+}
+
+a:hover{
+    color: rgb(117, 117, 117);
+}
+
+.nav-toggle:checked ~ nav,
+a Menu{
+    transform: scale(1,1);
+    opacity: 1;
+    transform : opacity 1s ease-in-out 1s;
+}
+
+.nav-toggle{
+    display: none;
+}
+
+.nav-toggle-label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.nav-toggle-label:hover{
+    transform: scale(1.2);
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+    display: block;
+    background: #EF946C;
+    height: 2px;
+    width: 29px;
+    border-radius: 50px;
+    position: relative;
+}
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+    content: "";
+    position: absolute
+}
+.nav-toggle-label span::before{
+    bottom: 7px;
+}
+.nav-toggle-label span::after{
+    top: 7px;
+}
+/* Header end*/
+
+/* Body start */
+.content{
+    background-color: #F2F0E6;
+    margin:0;
+    padding: 0;
+    top: 50px;
+    position: relative;
+}
+
+.instruction_box{
+    background-color: #F2F0E6;
+    position: center;
+    text-align: center;
+    border-radius: 10px;
+    border-color: #EF946C;
+    padding-bottom: 1%;
+    font-style: oblique;
+
+}
+.instruction_2{
+    position: center;
+    color: #EF946C;
+    
+}
+
+ul{
+    margin: 3px;
+    list-style-type: none;
+    text-align: center;
+}
+fieldset{
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+    height: auto;
+    border: none;
+    padding: 10px;
+    background: #F2F0E6;
+}
+.form{
+    position: center;
+    width: auto;
+    height: auto;
+    padding: 21px;
+    background: #F2F0E6;
+    border-radius: 20px;
+}
+.radio {
+    display: inline-flex;
+    /* align-items:center ; */
+    /* margin-right: 10px; */
+    cursor: pointer;
+    background-color: #F2F0E6;
+}
+.input{
+    display: none;
+}
+.checkmark{
+    width: 1.25em;
+    height: 1.25em;
+    border: 2px solid #5C9EAD;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-sizing: border-box;
+    padding: 2px;
+    display: inline-block;
+}
+.checkmark::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #326273;
+    border-radius: 50%;
+
+    transform: scale(0);
+    transition: transform 0.165s;
+}
+.input:checked + .checkmark::after{
+    transform: scale(1);
+}
+.radio:hover{
+    color: #326273;
+    transform: scale(1.1);
+}
+.Vote{
+    position: fixed;
+    bottom: 0;
+    z-index: 10000;
+    background-color: #e39774;
+    position: center;
+    height: 50px;
+    width: 100%;
+    border: none;
+}
+
+.Vote:hover{
+    color: white; 
+}

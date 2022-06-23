@@ -1,0 +1,47 @@
+{% if latest_question_list %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/index.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+<body>
+    
+
+
+    <header>
+        <div class="container">
+            <h1 class="Logobal">BAL DE L'EIJV</h1>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+                <ul>
+                    <li class="Menu"><a href="{% url 'polls:index'%}" class="Menu">Home</a></li>
+
+            </nav>
+        </div>
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+    </header>
+        <div class="content">
+            <ul>
+                {% for question in latest_question_list %}
+                <li><a href="{%url 'polls:detail' question.id%}">{{question.question_text}}</a> </li>
+                {%endfor%}
+                </ul>
+        {%else%}
+            <p>No polls available.</p>
+
+{%endif%}
+        </div>
+            
+
+</body>
